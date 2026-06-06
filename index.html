@@ -1,10 +1,236 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Les recos du PodChiasse</title>
+  <meta charset="UTF-8">
+  <title>Les chiasses du PodChiasse</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f7fb;
+      color: #1f2937;
+      margin: 0;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #7c3aed;
+      margin-bottom: 40px;
+    }
+
+    .filters {
+      background: white;
+      max-width: 900px;
+      margin: 0 auto 40px;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+
+    select {
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #d1d5db;
+      font-size: 18px;
+      background: white;
+    }
+
+    .episode {
+      background: white;
+      max-width: 1000px;
+      margin: 0 auto 30px;
+      padding: 35px;
+      border-radius: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .meta {
+      color: #64748b;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .episode h2 {
+      margin: 0 0 15px;
+      font-size: 32px;
+    }
+
+    .link {
+      color: #8b5cf6;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .guests {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .guest h3 {
+      color: #8b5cf6;
+      font-size: 24px;
+    }
+
+    .card {
+      background: #f8fafc;
+      padding: 22px;
+      border-radius: 18px;
+      border: 1px solid #e5e7eb;
+      margin-bottom: 15px;
+    }
+
+    .card strong {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 800px) {
+      .filters, .guests {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>Les recos du PodChiasse</h1>
-    <p>Bienvenue sur le site des recommandations du PodChiasse.</p>
+
+  <h1>Les chiasses du PodChiasse</h1>
+
+  <div class="filters">
+    <select id="seasonFilter">
+      <option value="">Saison</option>
+    </select>
+
+    <select id="episodeFilter">
+      <option value="">Épisode</option>
+    </select>
+
+    <select id="guestFilter">
+      <option value="">Invité(e)(s)</option>
+    </select>
+  </div>
+
+  <div id="results"></div>
+
+  <script>
+    const episodes = [
+      {
+        season: "Saison 1",
+        episode: "Épisode 1",
+        date: "01/01/2024",
+        title: "Les premières chiasses",
+        link: "https://example.com",
+        guests: [
+          {
+            name: "Jean Dupont",
+            subjects: [
+              "Les gens qui marchent lentement",
+              "Les sites qui demandent de créer un compte"
+            ]
+          },
+          {
+            name: "Marie Martin",
+            subjects: [
+              "Les gens qui parlent fort au téléphone",
+              "Les cafés trop chers"
+            ]
+          }
+        ]
+      },
+      {
+        season: "Saison 1",
+        episode: "Épisode 2",
+        date: "08/01/2024",
+        title: "Ça recommence",
+        link: "https://example.com",
+        guests: [
+          {
+            name: "Jean Dupont",
+            subjects: [
+              "Les files d’attente mal organisées",
+              "Les gens qui s’arrêtent en plein milieu du trottoir"
+            ]
+          },
+          {
+            name: "Paul Bernard",
+            subjects: [
+              "Les écouteurs qui s’emmêlent",
+              "Les notifications inutiles"
+            ]
+          }
+        ]
+      }
+    ];
+
+    const seasonFilter = document.getElementById("seasonFilter");
+    const episodeFilter = document.getElementById("episodeFilter");
+    const guestFilter = document.getElementById("guestFilter");
+    const results = document.getElementById("results");
+
+    function fillFilters() {
+      const seasons = [...new Set(episodes.map(e => e.season))];
+      const episodeNames = [...new Set(episodes.map(e => e.episode))];
+      const guests = [...new Set(episodes.flatMap(e => e.guests.map(g => g.name)))];
+
+      seasons.forEach(s => seasonFilter.innerHTML += `<option value="${s}">${s}</option>`);
+      episodeNames.forEach(e => episodeFilter.innerHTML += `<option value="${e}">${e}</option>`);
+      guests.forEach(g => guestFilter.innerHTML += `<option value="${g}">${g}</option>`);
+    }
+
+    function render() {
+      const selectedSeason = seasonFilter.value;
+      const selectedEpisode = episodeFilter.value;
+      const selectedGuest = guestFilter.value;
+
+      const filtered = episodes.filter(ep => {
+        const matchSeason = !selectedSeason || ep.season === selectedSeason;
+        const matchEpisode = !selectedEpisode || ep.episode === selectedEpisode;
+        const matchGuest = !selectedGuest || ep.guests.some(g => g.name === selectedGuest);
+        return matchSeason && matchEpisode && matchGuest;
+      });
+
+      results.innerHTML = "";
+
+      filtered.forEach(ep => {
+        const visibleGuests = selectedGuest
+          ? ep.guests.filter(g => g.name === selectedGuest)
+          : ep.guests;
+
+        results.innerHTML += `
+          <div class="episode">
+            <div class="meta">${ep.season} • ${ep.episode} • ${ep.date}</div>
+            <h2>${ep.title}</h2>
+            <a class="link" href="${ep.link}" target="_blank">▶ Écouter l'épisode</a>
+
+            <div class="guests">
+              ${visibleGuests.map(guest => `
+                <div class="guest">
+                  <h3>${guest.name}</h3>
+                  ${guest.subjects.map(subject => `
+                    <div class="card">
+                      <strong>${subject}</strong>
+                    </div>
+                  `).join("")}
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    seasonFilter.addEventListener("change", render);
+    episodeFilter.addEventListener("change", render);
+    guestFilter.addEventListener("change", render);
+
+    fillFilters();
+    render();
+  </script>
+
 </body>
 </html>
