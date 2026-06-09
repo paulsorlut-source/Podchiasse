@@ -2,15 +2,31 @@ const episodes = [
   {
     season: "Saison 1",
     episode: "Épisode 1",
-    date: "01/01/2024",
-    title: "Titre de l'épisode",
-    link: "https://lien-vers-episode.com",
+    date: "27/11/2023",
+    title: "Les voisins qui baisent et les gâteaux mous.",
+    link: "https://shows.acast.com/we-love-tftc/episodes/podchiasse-les-voisins-qui-baisent-et-les-gateaux-mous",
     guests: [
       {
-        name: "Nom de l'invité",
+        name: "Mehdi",
         subjects: [
-          "Premier sujet qui l'énerve",
-          "Deuxième sujet qui l'énerve"
+          "Voisins bruyants en collant un verre",
+          "Les chaises mauves d'entreprises",
+          "Les barbes sans dessus dessous"
+        ]
+      },
+      {
+        name: "Jean-Baptiste Toussaint",
+        subjects: [
+          "Les gâteaux qui ramollissent",
+          "Les menus en italiens et qrcodes",
+          "Les gavroches",
+          "Les bâtiments modernes"
+        ]
+      },
+      {
+        name: "Aurélien Chapuis",
+        subjects: [
+          "Les réunions rallongées"
         ]
       }
     ]
