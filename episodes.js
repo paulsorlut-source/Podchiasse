@@ -186,7 +186,7 @@ const episodes = [
       {
         name: "Jean-Baptiste Toussaint",
         subjects: [
-          "Les cordonniers obsolétes",
+          "Les cordonniers obsolètes",
           "Les utilisateurs compulsif de répliques de films",
           "Démocratisons la perruque"
         ]
