@@ -63,7 +63,7 @@ const episodes = [
               "Les branlettes collectives"
               "Les additions partagées"
             ]
-          },
+          }
         ]
       },
   {
@@ -96,7 +96,7 @@ const episodes = [
               "James Bond différents"
               "Les bloqueurs de trottoirs"
             ]
-          },
+          }
         ]
       },
     {
@@ -126,7 +126,7 @@ const episodes = [
               "Les managers Mcdo",
               "Les Cocas sans bulles"
             ]
-          },
+          }
         ]
       }
 ];
