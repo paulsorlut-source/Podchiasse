@@ -179,7 +179,7 @@ const episodes = [
       {
         name: "Mehdi",
         subjects: [
-          "Le beurre de cacahuëtes ça prend pas!",
+          "Les bouchons attachés",
           "Les potes de sa copine"
         ]
       },
