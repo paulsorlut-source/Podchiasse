@@ -128,5 +128,69 @@ const episodes = [
         ]
       }
     ]
+  },
+  {
+    season: "Saison 1",
+    episode: "Épisode 5",
+    date: "7/03/2024",
+    title: "Podchiasse : les perruques et le beurre de cacahuètes avec Florent Bernard.",
+    link: "https://shows.acast.com/we-love-tftc/episodes/podchiasse-les-perruques-et-le-beurre-de-cacahuetes",
+    guests: [
+      {
+        name: "Florent Bernard",
+        subjects: [
+          "Les restes de Pizza froides",
+          "Les doubleurs d'autoroutes",
+          "Nettoyer les vitres"
+        ]
+      },
+      {
+        name: "Mehdi",
+        subjects: [
+          "Le beurre de cacahuëtes ça prend pas!",
+          "Les potes de sa copine"
+        ]
+      },
+      {
+        name: "Jean-Baptiste Toussaint",
+        subjects: [
+          "Les cordonniers obsolétes",
+          "Les utilisateurs compulsif de répliques de films",
+          "Démocratisons la perruque"
+        ]
+      }
+    ]
+  },
+   {
+    season: "Saison 1",
+    episode: "Épisode 6",
+    date: "28/03/2024",
+    title: "Podchiasse : les doigteurs et les pâtes alphabets.",
+    link: "https://shows.acast.com/we-love-tftc/episodes/podchiasse-les-doigteurs-et-les-pates-alphabets",
+    guests: [
+      {
+        name: "Joan",
+        subjects: [
+          "Les commercants polis",
+          "Les doubleurs d'autoroutes",
+          "Nettoyer les vitres"
+        ]
+      },
+      {
+        name: "Mehdi",
+        subjects: [
+          "Le beurre de cacahuëtes ça prend pas!",
+          "Les potes de sa copine"
+        ]
+      },
+      {
+        name: "Jean-Baptiste Toussaint",
+        subjects: [
+          "Les cordonniers obsolétes",
+          "Les utilisateurs compulsif de répliques de films",
+          "Démocratisons la perruque"
+        ]
+      }
+    ]
   }
 ];
