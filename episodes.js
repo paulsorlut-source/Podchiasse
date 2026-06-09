@@ -30,5 +30,40 @@ const episodes = [
         ]
       }
     ]
-  }
+  },
+   {
+        season: "Saison 1",
+        episode: "Épisode 2",
+        date: "28/12/2023",
+        title: "Les branlettes collectives et les frites dans les grilles",
+        link: "https://shows.acast.com/we-love-tftc/episodes/podchiasse-les-branlettes-collectives-et-les-frites-dans-les",
+        guests: [
+          {
+            name: "Mehdi",
+            subjects: [
+              "Les frites dans les grilles",
+              "Les boissons qui arrivent trop tôt",
+              "Les vêtements qui se dégradent"
+            ]
+          },
+          {
+            name: "Joan",
+            subjects: [
+              "Les mendiants difficiles",
+              "Les déodorants goût salé",
+              "Les likeurs de messages",
+              "Le persil pour chat"
+            ]
+          },
+          {
+            name: "Jean-Baptiste Toussaint",
+            subjects: [
+              "Les siffleurs de banalitées",
+              "Les notifications inutiles"
+              "Les branlettes collectives"
+              "Les additions partagées"
+            ]
+          },
+        ]
+      }
 ];
