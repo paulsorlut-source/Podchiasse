@@ -172,7 +172,7 @@ const episodes = [
         name: "Joan",
         subjects: [
           "Les commercants polis",
-          "Les doubleurs d'autoroutes",
+          "Les chuchoteurs d'emphase",
           "Nettoyer les vitres"
         ]
       },
@@ -180,13 +180,13 @@ const episodes = [
         name: "Mehdi",
         subjects: [
           "Les bouchons attachés",
-          "Les potes de sa copine"
+          "Les cables chez Disneyland"
         ]
       },
       {
         name: "Jean-Baptiste Toussaint",
         subjects: [
-          "Les cordonniers obsolètes",
+          "Les décrocheurs en pleine conversation",
           "Les utilisateurs compulsif de répliques de films",
           "Démocratisons la perruque"
         ]
