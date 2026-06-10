@@ -144,7 +144,7 @@ transition: transform .2s ease;
 
     function fillFilters() {
       const seasons = [...new Set(episodes.map(e => e.season))];
-      const episodeNames = [...new Set(episodes.map(e => e.episode))];
+      const episodeNames = [...new Set(episodes.map(e => e.title))];
       const guests = [...new Set(episodes.flatMap(e => e.guests.map(g => g.name)))];
 
       seasons.forEach(s => seasonFilter.innerHTML += `<option value="${s}">${s}</option>`);
@@ -159,7 +159,7 @@ transition: transform .2s ease;
 
       const filtered = episodes.filter(ep => {
         const matchSeason = !selectedSeason || ep.season === selectedSeason;
-        const matchEpisode = !selectedEpisode || ep.episode === selectedEpisode;
+        const matchEpisode = !selectedEpisode || ep.title === selectedEpisode;
         const matchGuest = !selectedGuest || ep.guests.some(g => g.name === selectedGuest);
         return matchSeason && matchEpisode && matchGuest;
       });
