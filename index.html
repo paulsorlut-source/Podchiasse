@@ -24,17 +24,21 @@
     }
 
     .filters {
-      background: white;
-      max-width: 900px;
-      margin: 0 auto 40px;
-      padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 20px;
-    }
+  background: white;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 
+  display: flex;
+  gap: 20px;
+}
+
+.filters select {
+  flex: 1;
+  min-width: 0;
+}
     select {
       padding: 16px;
       border-radius: 12px;
