@@ -155,11 +155,10 @@
     #logoToggle {
       cursor: pointer;
       border-radius: 24px;
-      padding: 8px;
     }
 
     #logoToggle:hover {
-      box-shadow: 0 0 0 2px #6ff5c8, 0 0 22px rgba(111,245,200,0.55);
+      filter: drop-shadow(0 0 2px black) drop-shadow(0 8px 12px rgba(0,0,0,0.30)) drop-shadow(0 0 10px rgba(111,245,200,0.75)) !important;
     }
 
     #logoToggle.clicked {
@@ -167,7 +166,7 @@
     }
 
     body.dark #logoToggle {
-      box-shadow: 0 0 0 3px #6ff5c8, 0 0 28px rgba(111,245,200,0.75);
+      filter: drop-shadow(0 0 2px black) drop-shadow(0 8px 12px rgba(0,0,0,0.30)) drop-shadow(0 0 2px #6ff5c8) drop-shadow(0 0 16px rgba(111,245,200,0.85)) !important;
     }
 
     .logo-hint {
