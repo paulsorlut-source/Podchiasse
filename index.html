@@ -173,7 +173,11 @@
       text-align: center;
       color: #64748b;
       font-size: 14px;
-      margin: -4px 0 12px;
+      margin: -4px 0 24px;
+    }
+
+    .logo-hint.hidden {
+      display: none;
     }
   </style>
 </head>
@@ -225,6 +229,11 @@
     const searchInput = document.getElementById("searchInput");
     const results = document.getElementById("results");
     const logoToggle = document.getElementById("logoToggle");
+    const logoHint = document.querySelector(".logo-hint");
+
+    if (localStorage.getItem("logoHintSeen") === "true") {
+      logoHint.classList.add("hidden");
+    }
 
     function toggleDarkMode() {
       document.body.classList.toggle("dark");
@@ -232,6 +241,8 @@
 
     logoToggle.addEventListener("click", () => {
       logoToggle.classList.add("clicked");
+      logoHint.classList.add("hidden");
+      localStorage.setItem("logoHintSeen", "true");
       toggleDarkMode();
 
       setTimeout(() => {
