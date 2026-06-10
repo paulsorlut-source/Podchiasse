@@ -10,6 +10,7 @@
   
   <style>
     body {
+      <button id="themeToggle" class="theme-toggle">🌙 Mode sombre</button>
       font-family: Arial, sans-serif;
       background: #f6f7fb;
       color: #1f2937;
@@ -100,6 +101,52 @@
     }
 
     @media (max-width: 800px) {
+      .theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+  border: none;
+  background: white;
+  color: #1f2937;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+body.dark {
+  background: #111827;
+  color: #f9fafb;
+}
+
+body.dark .filters,
+body.dark .episode {
+  background: #1f2937;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+body.dark select {
+  background: #111827;
+  color: #f9fafb;
+  border-color: #374151;
+}
+
+body.dark .card {
+  background: #111827;
+  border-color: #374151;
+}
+
+body.dark .meta,
+body.dark footer {
+  color: #9ca3af;
+}
+
+body.dark .theme-toggle {
+  background: #1f2937;
+  color: #6ff5c8;
+}
       .filters, .guests {
         grid-template-columns: 1fr;
       }
@@ -140,6 +187,18 @@ transition: transform .2s ease;
   <script src="episodes.js"></script>
 
   <script>
+   
+    const themeToggle = document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    themeToggle.textContent = "☀️ Mode clair";
+  } else {
+    themeToggle.textContent = "🌙 Mode sombre";
+  }
+});
 
     const seasonFilter = document.getElementById("seasonFilter");
     const episodeFilter = document.getElementById("episodeFilter");
