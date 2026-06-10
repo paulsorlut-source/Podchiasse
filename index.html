@@ -99,9 +99,8 @@
       font-size: 20px;
       margin-bottom: 8px;
     }
-
-    @media (max-width: 800px) {
-      .theme-toggle {
+    
+    .theme-toggle {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -147,6 +146,9 @@ body.dark .theme-toggle {
   background: #1f2937;
   color: #6ff5c8;
 }
+
+    @media (max-width: 800px) {
+      
       .filters, .guests {
         grid-template-columns: 1fr;
       }
@@ -188,17 +190,6 @@ transition: transform .2s ease;
 
   <script>
    
-    const themeToggle = document.getElementById("themeToggle");
-
-themeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-
-  if (document.body.classList.contains("dark")) {
-    themeToggle.textContent = "☀️ Mode clair";
-  } else {
-    themeToggle.textContent = "🌙 Mode sombre";
-  }
-});
 
     const seasonFilter = document.getElementById("seasonFilter");
     const episodeFilter = document.getElementById("episodeFilter");
@@ -263,6 +254,17 @@ themeToggle.addEventListener("click", () => {
 
     fillFilters();
     render();
+    const themeToggle = document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    themeToggle.textContent = "☀️ Mode clair";
+  } else {
+    themeToggle.textContent = "🌙 Mode sombre";
+  }
+});
   </script>
 <footer style="
 max-width:1000px;
