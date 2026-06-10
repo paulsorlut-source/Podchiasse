@@ -6,11 +6,9 @@
   <title>Les Pépites du PodChiasse</title>
 
   <meta name="description" content="Retrouvez tous les Podchiasses deeee crack ! Classés par épisode, saison et invité(e). Explorez facilement tous les sujets abordés dans le podcast PodChiasse.">
-</head>
-  
+
   <style>
     body {
-      <button id="themeToggle" class="theme-toggle">🌙 Mode sombre</button>
       font-family: Arial, sans-serif;
       background: #f6f7fb;
       color: #1f2937;
@@ -25,21 +23,22 @@
     }
 
     .filters {
-  background: white;
-  max-width: 1200px;
-  margin: 0 auto 40px;
-  padding: 30px;
-  border-radius: 18px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      background: white;
+      max-width: 1200px;
+      margin: 0 auto 40px;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 
-  display: flex;
-  gap: 20px;
-}
+      display: flex;
+      gap: 20px;
+    }
 
-.filters select {
-  flex: 1;
-  min-width: 0;
-}
+    .filters select {
+      flex: 1;
+      min-width: 0;
+    }
+
     select {
       padding: 16px;
       border-radius: 12px;
@@ -99,68 +98,72 @@
       font-size: 20px;
       margin-bottom: 8px;
     }
-    
+
     @media (max-width: 800px) {
-      
-      .filters, .guests {
+      .filters {
+        flex-direction: column;
+      }
+
+      .guests {
         grid-template-columns: 1fr;
       }
     }
-  .theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 999;
-  border: none;
-  background: white;
-  color: #1f2937;
-  padding: 12px 18px;
-  border-radius: 999px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-}
 
-body.dark {
-  background: #111827;
-  color: #f9fafb;
-}
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+      border: none;
+      background: white;
+      color: #1f2937;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
 
-body.dark .filters,
-body.dark .episode {
-  background: #1f2937;
-}
+    body.dark {
+      background: #111827;
+      color: #f9fafb;
+    }
 
-body.dark select,
-body.dark .card {
-  background: #111827;
-  color: #f9fafb;
-  border-color: #374151;
-}
+    body.dark .filters,
+    body.dark .episode {
+      background: #1f2937;
+    }
 
-body.dark .meta,
-body.dark footer {
-  color: #9ca3af;
-}
+    body.dark select,
+    body.dark .card {
+      background: #111827;
+      color: #f9fafb;
+      border-color: #374151;
+    }
 
-body.dark .theme-toggle {
-  background: #1f2937;
-  color: #6ff5c8;
-}
+    body.dark .meta,
+    body.dark footer {
+      color: #9ca3af;
+    }
+
+    body.dark .theme-toggle {
+      background: #1f2937;
+      color: #6ff5c8;
+    }
   </style>
 </head>
 <body>
-  
-  <div style="text-align:center;margin-bottom:8px;">
-<img src="logo.png" alt="PodChiasse"
-style="
-max-width:350px;
-width:100%;
-filter: drop-shadow(0 0 2px black) drop-shadow(0 8px 12px rgba(0,0,0,0.30));
-transition: transform .2s ease;
-">
+  <button id="themeToggle" class="theme-toggle">🌙 Mode sombre</button>
 
-</div>
+  <div style="text-align:center;margin-bottom:8px;">
+    <img src="logo.png" alt="PodChiasse"
+    style="
+    max-width:350px;
+    width:100%;
+    filter: drop-shadow(0 0 2px black) drop-shadow(0 8px 12px rgba(0,0,0,0.30));
+    transition: transform .2s ease;
+    ">
+  </div>
 
   <h1 style="margin-top:0;">Les Pépites du PodChiasse</h1>
 
@@ -183,8 +186,6 @@ transition: transform .2s ease;
   <script src="episodes.js"></script>
 
   <script>
-   
-
     const seasonFilter = document.getElementById("seasonFilter");
     const episodeFilter = document.getElementById("episodeFilter");
     const guestFilter = document.getElementById("guestFilter");
@@ -248,28 +249,30 @@ transition: transform .2s ease;
 
     fillFilters();
     render();
+
     const themeToggle = document.getElementById("themeToggle");
 
-themeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
 
-  if (document.body.classList.contains("dark")) {
-    themeToggle.textContent = "☀️ Mode clair";
-  } else {
-    themeToggle.textContent = "🌙 Mode sombre";
-  }
-});
+      if (document.body.classList.contains("dark")) {
+        themeToggle.textContent = "☀️ Mode clair";
+      } else {
+        themeToggle.textContent = "🌙 Mode sombre";
+      }
+    });
   </script>
-<footer style="
-max-width:1000px;
-margin:60px auto 20px auto;
-padding:20px;
-text-align:center;
-font-size:14px;
-color:#666;
-">
-Site non officiel recensant les sujets abordés dans le podcast PodChiasse.<br>
-Tous les droits relatifs au podcast et à son identité visuelle appartiennent à leurs propriétaires respectifs.
-</footer>
+
+  <footer style="
+  max-width:1000px;
+  margin:60px auto 20px auto;
+  padding:20px;
+  text-align:center;
+  font-size:14px;
+  color:#666;
+  ">
+  Site non officiel recensant les sujets abordés dans le podcast PodChiasse.<br>
+  Tous les droits relatifs au podcast et à son identité visuelle appartiennent à leurs propriétaires respectifs.
+  </footer>
 </body>
 </html>
