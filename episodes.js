@@ -173,7 +173,7 @@ const episodes = [
         subjects: [
           "Les commercants polis",
           "Les chuchoteurs d'emphase",
-          "Nettoyer les vitres"
+          "Les pates alphabet"
         ]
       },
       {
@@ -187,7 +187,7 @@ const episodes = [
         name: "Jean-Baptiste Toussaint",
         subjects: [
           "Les décrocheurs en pleine conversation",
-          "Les utilisateurs compulsif de répliques de films",
+          "Refuser d'admettre de trouver des stars jolies",
           "Démocratisons la perruque"
         ]
       }
