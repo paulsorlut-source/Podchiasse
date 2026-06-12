@@ -23,7 +23,35 @@
     h1 {
       text-align: center;
       color: #6ff5c8;
-      margin-bottom: 40px;
+      margin-bottom: 12px;
+      font-size: 38px;
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-shadow: 0 0 18px rgba(111,245,200,0.35);
+    }
+
+    h1 span {
+      display: block;
+    }
+
+    h1::after {
+      content: "";
+      display: block;
+      width: 82px;
+      height: 3px;
+      margin: 18px auto 0;
+      border-radius: 999px;
+      background: #6ff5c8;
+      box-shadow: 0 0 16px rgba(111,245,200,0.5);
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #64748b;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 0 34px;
     }
 
     .search-wrap {
@@ -170,7 +198,16 @@
 
       h1 {
         font-size: 30px;
-        margin-bottom: 28px;
+        margin-bottom: 10px;
+      }
+
+      h1::after {
+        margin-top: 14px;
+      }
+
+      .subtitle {
+        font-size: 14px;
+        margin-bottom: 24px;
       }
 
       .search-wrap {
@@ -256,6 +293,7 @@
     }
 
     body.dark .meta,
+    body.dark .subtitle,
     body.dark .result-count,
     body.dark footer {
       color: #9ca3af;
@@ -303,7 +341,11 @@
 
   <div class="logo-hint">Cliquez sur le logo pour changer obtenir le mode sombre.</div>
 
-  <h1 style="margin-top:-8px;">Les Pépites du PodChiasse</h1>
+  <h1 style="margin-top:-8px;">
+    <span>Les Pépites</span>
+    <span>du PodChiasse</span>
+  </h1>
+  <p class="subtitle">Tous les sujets du podcast, épisode par épisode.</p>
 
   <div class="search-wrap">
     <input
