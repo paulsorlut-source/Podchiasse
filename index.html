@@ -328,20 +328,20 @@
 
     .logo-area {
       position: relative;
-      width: min(620px, 100%);
+      width: min(760px, 100%);
       margin: 0 auto;
       text-align: center;
     }
 
     .logo-callout {
       position: absolute;
-      top: 58px;
-      right: -18px;
+      top: 74px;
+      left: calc(50% + 118px);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
       pointer-events: none;
-      transform: rotate(-2deg);
+      transform: none;
     }
 
     .logo-arrow {
@@ -381,13 +381,15 @@
       margin: 0;
       white-space: nowrap;
       text-shadow: none;
+      line-height: 1.2;
     }
 
     @media (max-width: 800px) {
       .logo-callout {
-        top: 50px;
-        right: -8px;
-        gap: 6px;
+        position: static;
+        justify-content: center;
+        gap: 8px;
+        margin: -8px 0 24px;
       }
 
       .logo-arrow {
