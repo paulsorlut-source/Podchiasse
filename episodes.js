@@ -173,14 +173,15 @@ const episodes = [
         subjects: [
           "Les commercants polis",
           "Les chuchoteurs d'emphase",
-          "Les pates alphabet"
+          "Les pâtes alphabet"
         ]
       },
       {
         name: "Mehdi",
         subjects: [
           "Les bouchons attachés",
-          "Les cables chez Disneyland"
+          "Les cables chez Disneyland",
+          "Les pensions alimentaires"
         ]
       },
       {
