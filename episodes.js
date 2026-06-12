@@ -173,7 +173,8 @@ const episodes = [
         subjects: [
           "Les commercants polis",
           "Les chuchoteurs d'emphase",
-          "Les pâtes alphabet"
+          "Les pâtes alphabet",
+          "Farcissage : Jean-Baptiste est un doigteur"
         ]
       },
       {
@@ -189,7 +190,7 @@ const episodes = [
         subjects: [
           "Les décrocheurs en pleine conversation",
           "Refuser d'admettre de trouver des stars jolies",
-          "Démocratisons la perruque"
+          "Animateurs télé : Vous revenez quand vous voulez"
         ]
       }
     ]
