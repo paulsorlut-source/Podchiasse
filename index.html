@@ -332,6 +332,16 @@
       text-align: center;
     }
 
+    .logo-arrow {
+      position: absolute;
+      top: 58px;
+      right: 4px;
+      width: 150px;
+      height: 70px;
+      pointer-events: none;
+      transform: rotate(-2deg);
+    }
+
     #logoToggle {
       cursor: pointer;
       border-radius: 24px;
@@ -364,10 +374,26 @@
     .logo-hint.hidden {
       display: none;
     }
+
+    @media (max-width: 800px) {
+      .logo-arrow {
+        top: 50px;
+        right: 0;
+        width: 95px;
+        height: 48px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="logo-area">
+    <svg class="logo-arrow" viewBox="0 0 160 75" aria-hidden="true" focusable="false">
+      <path d="M150 13 C118 44 66 56 20 33" fill="none" stroke="#000000" stroke-width="12" stroke-linecap="round"/>
+      <path d="M150 13 C118 44 66 56 20 33" fill="none" stroke="#6ff5c8" stroke-width="7" stroke-linecap="round"/>
+      <path d="M20 33 L50 19 L42 51 Z" fill="#000000"/>
+      <path d="M27 33 L45 25 L40 44 Z" fill="#6ff5c8"/>
+    </svg>
+
     <img id="logoToggle" src="logo.png" alt="PodChiasse"
     style="
     max-width:350px;
