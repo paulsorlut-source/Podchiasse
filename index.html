@@ -6,6 +6,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Les Pépites du PodChiasse</title>
 
   <meta name="description" content="Retrouvez tous les Podchiasses deeee crack ! Classés par épisode, saison et invité(e). Explorez facilement tous les sujets abordés dans le podcast PodChiasse.">
@@ -61,6 +62,14 @@
       min-width: 0;
     }
 
+    .result-count {
+      max-width: 1000px;
+      margin: -18px auto 20px;
+      color: #64748b;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
     select {
       padding: 16px;
       border-radius: 12px;
@@ -113,21 +122,117 @@
       border-radius: 18px;
       border: 1px solid #e5e7eb;
       margin-bottom: 15px;
+      display: flex;
+      align-items: center;
     }
 
     .card strong {
       display: block;
       font-size: 20px;
-      margin-bottom: 8px;
+      margin-bottom: 0;
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 998;
+      width: 48px;
+      height: 48px;
+      border: none;
+      border-radius: 999px;
+      background: #6ff5c8;
+      color: #111827;
+      font-size: 24px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
     }
 
     @media (max-width: 800px) {
+      body {
+        padding: 22px 14px;
+      }
+
+      #logoToggle {
+        max-width: 250px !important;
+      }
+
+      h1 {
+        font-size: 30px;
+        margin-bottom: 28px;
+      }
+
+      .search-wrap {
+        position: sticky;
+        top: 10px;
+        z-index: 20;
+        margin-bottom: 16px;
+        padding: 14px;
+        border-radius: 16px;
+      }
+
+      .search-wrap input {
+        padding: 14px;
+        font-size: 16px;
+      }
+
       .filters {
         flex-direction: column;
+        gap: 12px;
+        padding: 18px;
+        margin-bottom: 30px;
+        border-radius: 16px;
+      }
+
+      select {
+        padding: 14px;
+        font-size: 16px;
       }
 
       .guests {
         grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 22px;
+      }
+
+      .episode {
+        padding: 22px;
+        border-radius: 18px;
+        margin-bottom: 20px;
+      }
+
+      .episode h2 {
+        font-size: 24px;
+      }
+
+      .guest h3 {
+        font-size: 21px;
+      }
+
+      .card {
+        padding: 14px 16px;
+        border-radius: 14px;
+        margin-bottom: 10px;
+      }
+
+      .card strong {
+        font-size: 17px;
+      }
+
+      .result-count {
+        margin: -12px auto 16px;
+        font-size: 14px;
       }
     }
 
@@ -151,6 +256,7 @@
     }
 
     body.dark .meta,
+    body.dark .result-count,
     body.dark footer {
       color: #9ca3af;
     }
@@ -221,7 +327,10 @@
     </select>
   </div>
 
+  <div id="resultCount" class="result-count"></div>
   <div id="results"></div>
+
+  <button id="backToTop" class="back-to-top" aria-label="Retour en haut">↑</button>
 
   <script src="episodes.js"></script>
 
@@ -230,9 +339,11 @@
     const episodeFilter = document.getElementById("episodeFilter");
     const guestFilter = document.getElementById("guestFilter");
     const searchInput = document.getElementById("searchInput");
+    const resultCount = document.getElementById("resultCount");
     const results = document.getElementById("results");
     const logoToggle = document.getElementById("logoToggle");
     const logoHint = document.querySelector(".logo-hint");
+    const backToTop = document.getElementById("backToTop");
 
     if (localStorage.getItem("logoHintSeen") === "true") {
       logoHint.classList.add("hidden");
@@ -287,6 +398,7 @@
       });
 
       results.innerHTML = "";
+      resultCount.textContent = `${filtered.length} résultat${filtered.length > 1 ? "s" : ""} trouvé${filtered.length > 1 ? "s" : ""}`;
 
       filtered.forEach(ep => {
         const visibleGuests = selectedGuest
@@ -321,9 +433,26 @@
     guestFilter.addEventListener("change", render);
     searchInput.addEventListener("input", render);
 
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 500) {
+        backToTop.classList.add("visible");
+      } else {
+        backToTop.classList.remove("visible");
+      }
+    });
+
     if (typeof episodes !== "undefined") {
       fillFilters();
       render();
+    } else {
+      resultCount.textContent = "";
     }
   </script>
 
