@@ -166,7 +166,23 @@
     .guest h3 {
       color: #6ff5c8;
       font-size: 24px;
-      -webkit-text-stroke: 0.6px rgba(0,0,0,0.75);
+      position: relative;
+      isolation: isolate;
+      width: fit-content;
+    }
+
+    .guest h3 span {
+      position: relative;
+      display: inline-block;
+    }
+
+    .guest h3 span::before {
+      content: attr(data-text);
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      color: transparent;
+      -webkit-text-stroke: 2px #000000;
     }
 
     .card {
@@ -183,6 +199,19 @@
       display: block;
       font-size: 20px;
       margin-bottom: 0;
+    }
+
+    .card.search-match {
+      background: rgba(111,245,200,0.18);
+      border-color: #6ff5c8;
+      box-shadow: 0 0 0 2px rgba(111,245,200,0.22);
+    }
+
+    .search-highlight {
+      background: #6ff5c8;
+      color: #111827;
+      padding: 0 4px;
+      border-radius: 6px;
     }
 
     .back-to-top {
@@ -319,6 +348,12 @@
       background: #111827;
       color: #f9fafb;
       border-color: #374151;
+    }
+
+    body.dark .card.search-match {
+      background: rgba(111,245,200,0.14);
+      border-color: #6ff5c8;
+      box-shadow: 0 0 0 2px rgba(111,245,200,0.18);
     }
 
     body.dark .meta,
@@ -493,11 +528,41 @@
       guests.forEach(g => guestFilter.innerHTML += `<option value="${g}">${g}</option>`);
     }
 
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, character => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "\"": "&quot;",
+        "'": "&#039;"
+      }[character]));
+    }
+
+    function escapeRegex(value) {
+      return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }
+
+    function highlightText(text, searchText) {
+      if (!searchText) {
+        return escapeHtml(text);
+      }
+
+      const regex = new RegExp(`(${escapeRegex(searchText)})`, "gi");
+
+      return String(text).split(regex).map(part => {
+        if (part.toLowerCase() === searchText.toLowerCase()) {
+          return `<mark class="search-highlight">${escapeHtml(part)}</mark>`;
+        }
+
+        return escapeHtml(part);
+      }).join("");
+    }
+
     function render() {
       const selectedSeason = seasonFilter.value;
       const selectedEpisode = episodeFilter.value;
       const selectedGuest = guestFilter.value;
-      const searchText = searchInput.value.toLowerCase();
+      const searchText = searchInput.value.trim().toLowerCase();
 
       const filtered = episodes.filter(ep => {
         const matchSeason = !selectedSeason || ep.season === selectedSeason;
@@ -533,12 +598,16 @@
             <div class="guests">
               ${visibleGuests.map(guest => `
                 <div class="guest">
-                  <h3>${guest.name}</h3>
-                  ${guest.subjects.map(subject => `
-                    <div class="card">
-                      <strong>${subject}</strong>
+                  <h3><span data-text="${escapeHtml(guest.name)}">${escapeHtml(guest.name)}</span></h3>
+                  ${guest.subjects.map(subject => {
+                    const subjectMatchesSearch = searchText && subject.toLowerCase().includes(searchText);
+
+                    return `
+                    <div class="card ${subjectMatchesSearch ? "search-match" : ""}">
+                      <strong>${highlightText(subject, searchText)}</strong>
                     </div>
-                  `).join("")}
+                  `;
+                  }).join("")}
                 </div>
               `).join("")}
             </div>
