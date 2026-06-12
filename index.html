@@ -339,7 +339,19 @@
       width: 150px;
       height: 70px;
       pointer-events: none;
+      object-fit: contain;
       transform: rotate(-2deg);
+      filter:
+        drop-shadow(0 0 1px #000000)
+        drop-shadow(0 0 1px #000000)
+        brightness(0)
+        saturate(100%)
+        invert(88%)
+        sepia(43%)
+        saturate(615%)
+        hue-rotate(98deg)
+        brightness(101%)
+        contrast(93%);
     }
 
     #logoToggle {
@@ -387,12 +399,7 @@
 </head>
 <body>
   <div class="logo-area">
-    <svg class="logo-arrow" viewBox="0 0 160 75" aria-hidden="true" focusable="false">
-      <path d="M150 13 C118 44 66 56 20 33" fill="none" stroke="#000000" stroke-width="12" stroke-linecap="round"/>
-      <path d="M150 13 C118 44 66 56 20 33" fill="none" stroke="#6ff5c8" stroke-width="7" stroke-linecap="round"/>
-      <path d="M20 33 L50 19 L42 51 Z" fill="#000000"/>
-      <path d="M27 33 L45 25 L40 44 Z" fill="#6ff5c8"/>
-    </svg>
+    <img class="logo-arrow" src="arrow_transparent_rotated.png" alt="">
 
     <img id="logoToggle" src="logo.png" alt="PodChiasse"
     style="
