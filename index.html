@@ -4,7 +4,7 @@
   <link rel="icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Les Pépites du PodChiasse</title>
@@ -24,16 +24,510 @@
       text-align: center;
       color: #6ff5c8;
       margin-bottom: 12px;
-      font-family: "Montserrat", sans-serif;
+      font-family: "Inter", sans-serif;
       font-size: 38px;
       line-height: 1.05;
       font-weight: 900;
       letter-spacing: 0;
-      -webkit-text-stroke: 0.4px rgba(17,24,39,0.28);
+      position: relative;
       text-shadow: 0 0 18px rgba(111,245,200,0.35);
     }
 
     h1 span {
+      display: block;
+      position: relative;
+    }
+
+    h1 span::before {
+      content: attr(data-text);
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      color: transparent;
+      -webkit-text-stroke: 2px rgba(17,24,39,0.28);
+      text-shadow: none;
+    }
+
+    h1::after {
+      content: "";
+      display: block;
+      width: 82px;
+      height: 3px;
+      margin: 18px auto 0;
+      border-radius: 999px;
+      background: #6ff5c8;
+      box-shadow: 0 0 16px rgba(111,245,200,0.5);
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #64748b;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 0 34px;
+    }
+
+    .search-wrap {
+      background: white;
+      max-width: 1200px;
+      margin: 0 auto 20px;
+      padding: 20px 30px;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .search-wrap input {
+      width: 100%;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #d1d5db;
+      font-size: 18px;
+      background: white;
+      box-sizing: border-box;
+    }
+
+    .filters {
+      background: white;
+      max-width: 1200px;
+      margin: 0 auto 40px;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+
+      display: flex;
+      gap: 20px;
+    }
+
+    .filters select {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .result-count {
+      max-width: 1000px;
+      margin: -18px auto 20px;
+      color: #64748b;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    select {
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #d1d5db;
+      font-size: 18px;
+      background: white;
+    }
+
+    .episode {
+      background: white;
+      max-width: 1000px;
+      margin: 0 auto 30px;
+      padding: 35px;
+      border-radius: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .meta {
+      color: #64748b;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .episode h2 {
+      margin: 0 0 15px;
+      font-size: 32px;
+    }
+
+    .link {
+      color: #6ff5c8;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .guests {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .guest h3 {
+      color: #6ff5c8;
+      font-size: 24px;
+    }
+
+    .card {
+      background: #f8fafc;
+      padding: 22px;
+      border-radius: 18px;
+      border: 1px solid #e5e7eb;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .card strong {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 0;
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 998;
+      width: 48px;
+      height: 48px;
+      border: none;
+      border-radius: 999px;
+      background: #6ff5c8;
+      color: #111827;
+      font-size: 24px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 800px) {
+      body {
+        padding: 22px 14px;
+      }
+
+      #logoToggle {
+        max-width: 250px !important;
+      }
+
+      h1 {
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+
+      h1::after {
+        margin-top: 14px;
+      }
+
+      .subtitle {
+        font-size: 14px;
+        margin-bottom: 24px;
+      }
+
+      .search-wrap {
+        position: sticky;
+        top: 10px;
+        z-index: 20;
+        margin-bottom: 16px;
+        padding: 14px;
+        border-radius: 16px;
+      }
+
+      .search-wrap input {
+        padding: 14px;
+        font-size: 16px;
+      }
+
+      .filters {
+        flex-direction: column;
+        gap: 12px;
+        padding: 18px;
+        margin-bottom: 30px;
+        border-radius: 16px;
+      }
+
+      select {
+        padding: 14px;
+        font-size: 16px;
+      }
+
+      .guests {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 22px;
+      }
+
+      .episode {
+        padding: 22px;
+        border-radius: 18px;
+        margin-bottom: 20px;
+      }
+
+      .episode h2 {
+        font-size: 24px;
+      }
+
+      .guest h3 {
+        font-size: 21px;
+      }
+
+      .card {
+        padding: 14px 16px;
+        border-radius: 14px;
+        margin-bottom: 10px;
+      }
+
+      .card strong {
+        font-size: 17px;
+      }
+
+      .result-count {
+        margin: -12px auto 16px;
+        font-size: 14px;
+      }
+    }
+
+    body.dark {
+      background: #111827;
+      color: #f9fafb;
+    }
+
+    body.dark h1 span::before {
+      -webkit-text-stroke: 2px rgba(255,255,255,0.14);
+    }
+
+    body.dark .filters,
+    body.dark .search-wrap,
+    body.dark .episode {
+      background: #1f2937;
+    }
+
+    body.dark select,
+    body.dark .search-wrap input,
+    body.dark .card {
+      background: #111827;
+      color: #f9fafb;
+      border-color: #374151;
+    }
+
+    body.dark .meta,
+    body.dark .subtitle,
+    body.dark .result-count,
+    body.dark footer {
+      color: #9ca3af;
+    }
+
+    #logoToggle {
+      cursor: pointer;
+      border-radius: 24px;
+    }
+
+    #logoToggle:hover {
+      filter: drop-shadow(0 0 2px black) drop-shadow(0 8px 12px rgba(0,0,0,0.30)) drop-shadow(0 0 10px rgba(111,245,200,0.75)) !important;
+    }
+
+    #logoToggle.clicked {
+      transform: scale(0.96);
+    }
+
+    body.dark #logoToggle {
+      filter: drop-shadow(0 0 2px black) drop-shadow(0 8px 12px rgba(0,0,0,0.30)) drop-shadow(0 0 2px #6ff5c8) drop-shadow(0 0 16px rgba(111,245,200,0.85)) !important;
+    }
+
+    .logo-hint {
+      text-align: center;
+      color: #64748b;
+      font-size: 14px;
+      margin: -4px 0 24px;
+    }
+
+    .logo-hint.hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div style="text-align:center;margin-bottom:0;">
+    <img id="logoToggle" src="logo.png" alt="PodChiasse"
+    style="
+    max-width:350px;
+    width:100%;
+    filter: drop-shadow(0 0 2px black) drop-shadow(0 8px 12px rgba(0,0,0,0.30));
+    transition: transform .2s ease;
+    ">
+  </div>
+
+  <div class="logo-hint">Cliquez sur le logo pour changer obtenir le mode sombre.</div>
+
+  <h1 style="margin-top:-60px;">
+    <span data-text="Les Pépites">Les Pépites</span>
+    <span data-text="du PodChiasse">du PodChiasse</span>
+  </h1>
+  <p class="subtitle">Tous les sujets du podcast, épisode par épisode.</p>
+
+  <div class="search-wrap">
+    <input
+      type="search"
+      id="searchInput"
+      placeholder="Rechercher un sujet, un invité ou un épisode..."
+    >
+  </div>
+
+  <div class="filters">
+    <select id="seasonFilter">
+      <option value="">Saison</option>
+    </select>
+
+    <select id="episodeFilter">
+      <option value="">Épisode</option>
+    </select>
+
+    <select id="guestFilter">
+      <option value="">Invité(e)(s)</option>
+    </select>
+  </div>
+
+  <div id="resultCount" class="result-count"></div>
+  <div id="results"></div>
+
+  <button id="backToTop" class="back-to-top" aria-label="Retour en haut">↑</button>
+
+  <script src="episodes.js"></script>
+
+  <script>
+    const seasonFilter = document.getElementById("seasonFilter");
+    const episodeFilter = document.getElementById("episodeFilter");
+    const guestFilter = document.getElementById("guestFilter");
+    const searchInput = document.getElementById("searchInput");
+    const resultCount = document.getElementById("resultCount");
+    const results = document.getElementById("results");
+    const logoToggle = document.getElementById("logoToggle");
+    const logoHint = document.querySelector(".logo-hint");
+    const backToTop = document.getElementById("backToTop");
+
+    if (localStorage.getItem("logoHintSeen") === "true") {
+      logoHint.classList.add("hidden");
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
+    }
+
+    logoToggle.addEventListener("click", () => {
+      logoToggle.classList.add("clicked");
+      logoHint.classList.add("hidden");
+      localStorage.setItem("logoHintSeen", "true");
+      toggleDarkMode();
+
+      setTimeout(() => {
+        logoToggle.classList.remove("clicked");
+      }, 150);
+    });
+
+    function fillFilters() {
+      const seasons = [...new Set(episodes.map(e => e.season))];
+      const episodeNames = [...new Set(episodes.map(e => e.title))];
+      const guests = [...new Set(episodes.flatMap(e => e.guests.map(g => g.name)))];
+
+      seasons.forEach(s => seasonFilter.innerHTML += `<option value="${s}">${s}</option>`);
+      episodeNames.forEach(e => episodeFilter.innerHTML += `<option value="${e}">${e}</option>`);
+      guests.forEach(g => guestFilter.innerHTML += `<option value="${g}">${g}</option>`);
+    }
+
+    function render() {
+      const selectedSeason = seasonFilter.value;
+      const selectedEpisode = episodeFilter.value;
+      const selectedGuest = guestFilter.value;
+      const searchText = searchInput.value.toLowerCase();
+
+      const filtered = episodes.filter(ep => {
+        const matchSeason = !selectedSeason || ep.season === selectedSeason;
+        const matchEpisode = !selectedEpisode || ep.title === selectedEpisode;
+        const matchGuest = !selectedGuest || ep.guests.some(g => g.name === selectedGuest);
+        const matchSearch =
+          !searchText ||
+          ep.title.toLowerCase().includes(searchText) ||
+          ep.season.toLowerCase().includes(searchText) ||
+          ep.episode.toLowerCase().includes(searchText) ||
+          ep.guests.some(g =>
+            g.name.toLowerCase().includes(searchText) ||
+            g.subjects.some(subject => subject.toLowerCase().includes(searchText))
+          );
+
+        return matchSeason && matchEpisode && matchGuest && matchSearch;
+      });
+
+      results.innerHTML = "";
+      resultCount.textContent = `${filtered.length} résultat${filtered.length > 1 ? "s" : ""} trouvé${filtered.length > 1 ? "s" : ""}`;
+
+      filtered.forEach(ep => {
+        const visibleGuests = selectedGuest
+          ? ep.guests.filter(g => g.name === selectedGuest)
+          : ep.guests;
+
+        results.innerHTML += `
+          <div class="episode">
+            <div class="meta">${ep.season} • ${ep.episode} • ${ep.date}</div>
+            <h2>${ep.title}</h2>
+            <a class="link" href="${ep.link}" target="_blank">▶ Écouter l'épisode</a>
+
+            <div class="guests">
+              ${visibleGuests.map(guest => `
+                <div class="guest">
+                  <h3>${guest.name}</h3>
+                  ${guest.subjects.map(subject => `
+                    <div class="card">
+                      <strong>${subject}</strong>
+                    </div>
+                  `).join("")}
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    seasonFilter.addEventListener("change", render);
+    episodeFilter.addEventListener("change", render);
+    guestFilter.addEventListener("change", render);
+    searchInput.addEventListener("input", render);
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 500) {
+        backToTop.classList.add("visible");
+      } else {
+        backToTop.classList.remove("visible");
+      }
+    });
+
+    if (typeof episodes !== "undefined") {
+      fillFilters();
+      render();
+    } else {
+      resultCount.textContent = "";
+    }
+  </script>
+
+  <footer style="
+  max-width:1000px;
+  margin:60px auto 20px auto;
+  padding:20px;
+  text-align:center;
+  font-size:14px;
+  color:#666;
+  ">
+  Site non officiel recensant les sujets abordés dans le podcast PodChiasse.<br>
+  Tous les droits relatifs au podcast et à son identité visuelle appartiennent à leurs propriétaires respectifs.
+  </footer>
+</body>
+</html>
       display: block;
     }
 
