@@ -65,7 +65,7 @@
       color: #64748b;
       font-size: 16px;
       font-weight: 600;
-      margin: 0 0 34px;
+      margin: 14px 0 34px;
     }
 
     .search-wrap {
@@ -85,6 +85,14 @@
       font-size: 18px;
       background: white;
       box-sizing: border-box;
+      caret-color: #6ff5c8;
+    }
+
+    .search-wrap input:focus,
+    select:focus {
+      outline: none;
+      border-color: #6ff5c8;
+      box-shadow: 0 0 0 3px rgba(111,245,200,0.35);
     }
 
     .filters {
@@ -371,7 +379,7 @@
     <div class="logo-hint">Clique pour le mode sombre!</div>
   </div>
 
-  <h1 style="margin-top:-60px;">
+  <h1 style="margin-top:-76px;">
     <span data-text="Les Pépites">Les Pépites</span>
     <span data-text="du PodChiasse">du PodChiasse</span>
   </h1>
