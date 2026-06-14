@@ -122,6 +122,19 @@
       font-weight: 700;
     }
 
+    .empty-state {
+      max-width: 1000px;
+      margin: 0 auto 30px;
+      padding: 28px;
+      text-align: center;
+      color: #64748b;
+      font-size: 17px;
+      font-weight: 600;
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
     select {
       padding: 16px;
       border-radius: 12px;
@@ -182,7 +195,7 @@
       inset: 0;
       z-index: -1;
       color: transparent;
-      -webkit-text-stroke: 1px #000000;
+      -webkit-text-stroke: 2px #000000;
     }
 
     .card {
@@ -338,6 +351,7 @@
 
     body.dark .filters,
     body.dark .search-wrap,
+    body.dark .empty-state,
     body.dark .episode {
       background: #1f2937;
     }
@@ -358,6 +372,7 @@
 
     body.dark .meta,
     body.dark .subtitle,
+    body.dark .empty-state,
     body.dark .result-count,
     body.dark footer {
       color: #9ca3af;
@@ -504,8 +519,18 @@
     const logoToggle = document.getElementById("logoToggle");
     const backToTop = document.getElementById("backToTop");
 
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+    }
+
     function toggleDarkMode() {
       document.body.classList.toggle("dark");
+
+      if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
     }
 
     logoToggle.addEventListener("click", () => {
@@ -582,6 +607,15 @@
 
       results.innerHTML = "";
       resultCount.textContent = `${filtered.length} résultat${filtered.length > 1 ? "s" : ""} trouvé${filtered.length > 1 ? "s" : ""}`;
+
+      if (filtered.length === 0) {
+        results.innerHTML = `
+          <div class="empty-state">
+            Aucun résultat trouvé.
+          </div>
+        `;
+        return;
+      }
 
       filtered.forEach(ep => {
         const visibleGuests = selectedGuest
