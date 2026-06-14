@@ -20,4 +20,10 @@ Ce site est indépendant et non officiel. Il est créé à titre amateur et n’
 
 ## Aperçu
 
-Ajoutez ici une capture d’écran du site.
+### Version ordinateur
+
+![Aperçu ordinateur](desktop.png)
+
+### Version mobile
+
+![Aperçu mobile](mobile.png)
