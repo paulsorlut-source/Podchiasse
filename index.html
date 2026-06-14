@@ -114,6 +114,23 @@
       min-width: 0;
     }
 
+    .reset-button {
+      padding: 16px 20px;
+      border-radius: 12px;
+      border: 1px solid #d1d5db;
+      background: #f8fafc;
+      color: #1f2937;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .reset-button:hover {
+      border-color: #6ff5c8;
+      box-shadow: 0 0 0 3px rgba(111,245,200,0.22);
+    }
+
     .result-count {
       max-width: 1000px;
       margin: -18px auto 20px;
@@ -299,6 +316,11 @@
         border-radius: 16px;
       }
 
+      .reset-button {
+        padding: 14px;
+        font-size: 16px;
+      }
+
       select {
         padding: 14px;
         font-size: 16px;
@@ -358,6 +380,7 @@
 
     body.dark select,
     body.dark .search-wrap input,
+    body.dark .reset-button,
     body.dark .card {
       background: #111827;
       color: #f9fafb;
@@ -500,6 +523,8 @@
     <select id="guestFilter">
       <option value="">Invité(e)(s)</option>
     </select>
+
+    <button id="resetFilters" class="reset-button" type="button">Réinitialiser</button>
   </div>
 
   <div id="resultCount" class="result-count"></div>
@@ -518,6 +543,7 @@
     const results = document.getElementById("results");
     const logoToggle = document.getElementById("logoToggle");
     const backToTop = document.getElementById("backToTop");
+    const resetFilters = document.getElementById("resetFilters");
 
     if (localStorage.getItem("theme") === "dark") {
       document.body.classList.add("dark");
@@ -545,7 +571,8 @@
     function fillFilters() {
       const seasons = [...new Set(episodes.map(e => e.season))];
       const episodeNames = [...new Set(episodes.map(e => e.title))];
-      const guests = [...new Set(episodes.flatMap(e => e.guests.map(g => g.name)))];
+      const guests = [...new Set(episodes.flatMap(e => e.guests.map(g => g.name)))]
+        .sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" }));
 
       seasons.forEach(s => seasonFilter.innerHTML += `<option value="${s}">${s}</option>`);
       episodeNames.forEach(e => episodeFilter.innerHTML += `<option value="${e}">${e}</option>`);
@@ -653,6 +680,14 @@
     episodeFilter.addEventListener("change", render);
     guestFilter.addEventListener("change", render);
     searchInput.addEventListener("input", render);
+
+    resetFilters.addEventListener("click", () => {
+      searchInput.value = "";
+      seasonFilter.value = "";
+      episodeFilter.value = "";
+      guestFilter.value = "";
+      render();
+    });
 
     backToTop.addEventListener("click", () => {
       window.scrollTo({
