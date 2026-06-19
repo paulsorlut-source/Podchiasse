@@ -415,5 +415,35 @@ const episodes = [
         ]
       }
     ]
+  },
+  {
+    season: "Saison 2",
+    episode: "Épisode 3",
+    date: "28/11/2024",
+    title: "Podchiasse : la sueur de moustache et les frigos tièdes",
+    link: "https://shows.acast.com/we-love-tftc/episodes/podchiasse-la-sueur-de-moustache-et-les-frigos-tiedes",
+    guests: [
+      {
+        name: "Marie",
+        subjects: [
+          "La sueur de moustache",
+          "Les renifleurs qui refusent de se moucher"
+        ]
+      },
+      {
+        name: "Mehdi",
+        subjects: [
+          "Les fenêtres du métro trop durs à ouvrir",
+          "Paris n'est pas adaptée au handicap"
+        ]
+      },
+      {
+        name: "Jean-Baptiste Toussaint",
+        subjects: [
+          "Les frigo tièdes",
+          "Les gens qui forcent à poser une question"
+        ]
+      }
+    ]
   }
 ];
