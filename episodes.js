@@ -445,5 +445,113 @@ const episodes = [
         ]
       }
     ]
+  },
+  {
+    season: "Saison 2",
+    episode: "Épisode 4",
+    date: "20/12/2024",
+    title: "Podchiasse de noel : la chiasse et les croutons de pain avec Mehdi Maizi",
+    link: "https://shows.acast.com/we-love-tftc/episodes/podchiasse-de-noel-la-chiasse-et-les-croutons-de-pain",
+    guests: [
+      {
+        name: "Mehdi Maizi",
+        subjects: [
+          "Se lever tôt le matin et avoir du temps seul",
+          "Le pain du Leclerc dur",
+          "Arriver en avance à l'aéroport"
+        ]
+      },
+      {
+        name: "Mehdi Benchebana",
+        subjects: [
+          "Les japonais à volonté",
+          "Regarder les fourmis",
+          "Jouer à Mario Kart sur SuperNes"
+        ]
+      },
+      {
+        name: "Jean-Baptiste Toussaint",
+        subjects: [
+          "Être chez soi pendant une chiasse",
+          "Boire quand on a très soif",
+          "Se gratter l'oreille au coton tige",
+          "Quand l'ascenseur s'ouvre dès qu'on arrive"
+        ]
+      }
+    ]
+  },
+  {
+    season: "Saison 2",
+    episode: "Épisode 5",
+    date: "17/01/2025",
+    title: "Podchiasse : les olives et ceux qui font les intéressants avec Adrien Menielle",
+    link: "https://shows.acast.com/we-love-tftc/episodes/podchiasse-les-olives-et-ceux-qui-font-les-interessants",
+    guests: [
+      {
+        name: "Adrien Menielle",
+        subjects: [
+          "Les gens qui font leur intéressant",
+          "Être accusé de ne rien aimé alors qu'on se taisait",
+          "Poster une photo avec un défunt",
+          "Les influenceurs qui donnent un livre à lire"
+        ]
+      },
+      {
+        name: "Jean-Baptiste Toussaint",
+        subjects: [
+          "Les olives sur les pizzas qui ont encore le noyau",
+          "La course au meilleur RIP",
+          "Les tutos qui nous perdent"
+        ]
+      },
+      {
+        name: "Mehdi Benchebana",
+        subjects: [
+          "Le beurre...c'est trop dur à étaler"
+        ]
+      }
+    ]
+  },
+  {
+    season: "Saison 2",
+    episode: "Épisode 6",
+    date: "27/02/2025",
+    title: "Podchiasse : les pots de moutarde et les tapoteurs de cadence avec Leopold Lemarchand",
+    link: "https://shows.acast.com/we-love-tftc/episodes/podchiasse-les-pots-de-moutarde-et-les-tapoteurs-de-cadence",
+    guests: [
+      {
+        name: "Léopold Lemarchand",
+        subjects: [
+          "Les gens qui racontent leurs rêves",
+          "Raconter une histoire avec des protagonistes que l'on ne connait pas",
+          "Dire : La bouffe c'est la vie",
+          "Le manque de paneux bleus dans les stations"
+        ]
+      },
+      {
+        name: "Jean-Baptiste Toussaint",
+        subjects: [
+          "Les tapoteurs de cadences",
+          "Mettre la luminosité du téléphone au plus bas"
+        ]
+      },
+      {
+        name: "Mehdi Benchebana",
+        subjects: [
+          "Les pots de moutardes",
+          "Dire qu'on ressemble à Columbo avec un trenchcoat",
+          "Laisser son ami payer pour avoir la réduction sur les courses"
+        ]
+      },
+      {
+        name: "Marie (abonnée)",
+        subjects: [
+          "Les checkings",
+          "Devoir tirer la chasse 2 fois",
+          "Avoir envie d'aller aux toillettes juste après la douche",
+          "Les boutiques pour encadrer son iris"
+        ]
+      }
+    ]
   }
 ];
