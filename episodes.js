@@ -7,7 +7,7 @@ const episodes = [
     link: "https://shows.acast.com/we-love-tftc/episodes/podchiasse-les-voisins-qui-baisent-et-les-gateaux-mous",
     guests: [
       {
-        name: "Mehdi",
+        name: "Mehdi Benchebana",
         subjects: [
           "Voisins bruyants en collant un verre",
           "Les chaises mauves d'entreprises",
@@ -39,7 +39,7 @@ const episodes = [
     link: "https://shows.acast.com/we-love-tftc/episodes/podchiasse-les-branlettes-collectives-et-les-frites-dans-les",
     guests: [
       {
-        name: "Mehdi",
+        name: "Mehdi Benchebana",
         subjects: [
           "Les frites dans les grilles",
           "Les boissons qui arrivent trop tôt",
@@ -90,7 +90,7 @@ const episodes = [
         ]
       },
       {
-        name: "Mehdi",
+        name: "Mehdi Benchebana",
         subjects: [
           "Les serviettes en papier",
           "James Bond différents",
@@ -121,7 +121,7 @@ const episodes = [
         ]
       },
       {
-        name: "Mehdi",
+        name: "Mehdi Benchebana",
         subjects: [
           "Les managers Mcdo",
           "Les Cocas sans bulles"
@@ -145,7 +145,7 @@ const episodes = [
         ]
       },
       {
-        name: "Mehdi",
+        name: "Mehdi Benchebana",
         subjects: [
           "Le beurre de cacahuëtes ça prend pas!",
           "Les potes de sa copine"
@@ -178,7 +178,7 @@ const episodes = [
         ]
       },
       {
-        name: "Mehdi",
+        name: "Mehdi Benchebana",
         subjects: [
           "Les bouchons attachés",
           "Les cables chez Disneyland",
@@ -212,7 +212,7 @@ const episodes = [
         ]
       },
       {
-        name: "Mehdi",
+        name: "Mehdi Benchebana",
         subjects: [
           "Montrer les logos d'écharpes",
           "Appeler son copain par son prénom",
@@ -247,7 +247,7 @@ const episodes = [
         ]
       },
       {
-        name: "Mehdi",
+        name: "Mehdi Benchebana",
         subjects: [
           "Les postilloneurs",
           "Les ongles qui sautent en les coupant",
@@ -326,7 +326,7 @@ const episodes = [
         ]
       },
       {
-        name: "Mehdi",
+        name: "Mehdi Benchebana",
         subjects: [
           "Les douches de plages qui ne marchent plus",
           "Les chercheurs de métaux",
@@ -399,7 +399,7 @@ const episodes = [
         ]
       },
       {
-        name: "Mehdi",
+        name: "Mehdi Benchebana",
         subjects: [
           "Les contrôleurs de rame dans le métro",
           "Les vendeurs Castorama",
@@ -431,7 +431,7 @@ const episodes = [
         ]
       },
       {
-        name: "Mehdi",
+        name: "Mehdi Benchebana",
         subjects: [
           "Les fenêtres du métro trop durs à ouvrir",
           "Paris n'est pas adaptée au handicap"
@@ -550,6 +550,82 @@ const episodes = [
           "Devoir tirer la chasse 2 fois",
           "Avoir envie d'aller aux toillettes juste après la douche",
           "Les boutiques pour encadrer son iris"
+        ]
+      }
+    ]
+  },
+  {
+    season: "Saison 2",
+    episode: "Épisode 7",
+    date: "27/03/2025",
+    title: "Podchiasse : Ronald McDonald et les baristas avec Morgane Cadignan",
+    link: "https://shows.acast.com/we-love-tftc/episodes/podchiasse-ronald-mcdonald-et-les-baristas",
+    guests: [
+      {
+        name: "Morgane Cadignan",
+        subjects: [
+          "Devoir payer l'addition au comptoir",
+          "Les manteaux qui trainent de la chaise",
+          "Les wagons bar des trains",
+          "Les cagnottes",
+          "Les faux décomptes de coachs sportifs"
+        ]
+      },
+      {
+        name: "Mehdi Benchebana",
+        subjects: [
+          "Les restaurant indiens plus cher à Paris",
+          "Se vanter de ne pas avoir de télé",
+          "Il est où Ronald Mcdonald?"
+        ]
+      },
+      {
+        name: "Jean Baptiste Toussaint",
+        subjects: [
+          "Être coincé dans une conversation avec un inconnu",
+          "Les tueurs en série qui détruisent une marque",
+          "Payer des cadeaux pour trop d'enfants"
+        ]
+      },
+      {
+        name: "Mathéo (abonné)",
+        subjects: [
+          "Les bus qui s'arrêtent à deux pas de nous",
+          "Les rafales de petits messages"
+        ]
+      }
+    ]
+  },
+  {
+    season: "Saison 2",
+    episode: "Épisode 8",
+    date: "17/04/2025",
+    title: "Podchiasse : Les gardeurs de places et Bernard Montiel avec Florent Bernard",
+    link: "https://shows.acast.com/we-love-tftc/episodes/podchiasse-les-gardeurs-de-places-et-bernard-montiel",
+    guests: [
+      {
+        name: "Florent Bernard",
+        subjects: [
+          "Les sucettes impossibles à ouvrir",
+          "Les stories cryptiques",
+          "Les gardeurs de places",
+          "Les files d'attentes avec trop de virages"
+        ]
+      },
+      {
+        name: "Mehdi Benchebana",
+        subjects: [
+          "Les cables qui dépassent des télés",
+          "Devoir faire la conversation en salle de pause",
+          "Le ballet à chiottes"
+        ]
+      },
+      {
+        name: "Jean Baptiste Toussaint",
+        subjects: [
+          "Les pommes de vergers pourries",
+          "Les tueurs en série qui détruisent une ville",
+          "Ne pas avoir de rangement pour ses casquettes"
         ]
       }
     ]
